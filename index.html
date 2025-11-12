@@ -1,1 +1,2365 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VARILEO — Transformez votre vie maintenant ! 🚀</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'space-dark': '#0a0a0a',
+'space-black': '#000000',
+'cyber-white': '#ffffff',
+'cyber-gray': '#404040',
+'cyber-light': '#e0e0e0',
+},
+fontFamily: {
+'main': ['Orbitron', 'Rajdhani', 'system-ui', 'sans-serif'],
+}
+}
+}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+font-family: 'Rajdhani', 'Orbitron', system-ui, sans-serif;
+}
+
+body {
+background: #000000;
+color: #ffffff;
+position: relative;
+overflow-x: hidden;
+}
+
+/* Starfield Background */
+.starfield {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 0;
+pointer-events: none;
+}
+
+.star {
+position: absolute;
+background: white;
+border-radius: 50%;
+animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+0%, 100% { opacity: 0.2; }
+50% { opacity: 1; }
+}
+
+/* Grid Background */
+.cyber-grid {
+background-image:
+linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+background-size: 50px 50px;
+}
+
+/* Scanlines */
+.scanlines {
+position: relative;
+overflow: hidden;
+}
+
+.scanlines::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(
+to bottom,
+transparent 50%,
+rgba(255, 255, 255, 0.02) 50%
+);
+background-size: 100% 4px;
+pointer-events: none;
+z-index: 1;
+}
+
+/* Promo Banner Futuristic */
+.promo-banner {
+background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+position: relative;
+}
+
+.promo-banner::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+animation: slideShine 3s infinite;
+}
+
+@keyframes slideShine {
+0% { left: -100%; }
+100% { left: 200%; }
+}
+
+/* Futuristic Card */
+.cyber-card {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+border: 1px solid rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+box-shadow:
+0 0 20px rgba(255, 255, 255, 0.05),
+inset 0 0 20px rgba(255, 255, 255, 0.02);
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+position: relative;
+overflow: hidden;
+}
+
+.cyber-card::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+
+.cyber-card:hover::before {
+opacity: 1;
+}
+
+.cyber-card:hover {
+transform: translateY(-10px) scale(1.02);
+border-color: rgba(255, 255, 255, 0.3);
+box-shadow:
+0 0 40px rgba(255, 255, 255, 0.15),
+inset 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+/* Futuristic Button */
+.cyber-btn {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+border: 2px solid rgba(255, 255, 255, 0.3);
+color: #ffffff;
+font-family: 'Orbitron', sans-serif;
+font-size: 1rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+backdrop-filter: blur(10px);
+box-shadow:
+0 0 20px rgba(255, 255, 255, 0.2),
+inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+.cyber-btn {
+font-size: 1.125rem;
+}
+}
+
+.cyber-btn::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.2);
+transform: translate(-50%, -50%);
+transition: width 0.6s, height 0.6s;
+}
+
+.cyber-btn:hover::before {
+width: 300px;
+height: 300px;
+}
+
+.cyber-btn:hover {
+transform: scale(1.05);
+border-color: rgba(255, 255, 255, 0.8);
+box-shadow:
+0 0 40px rgba(255, 255, 255, 0.4),
+inset 0 0 20px rgba(255, 255, 255, 0.2);
+color: #ffffff;
+}
+
+.cyber-btn:active {
+transform: scale(0.98);
+}
+
+/* Mega Button */
+.mega-btn {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+border: 3px solid rgba(255, 255, 255, 0.5);
+color: #ffffff;
+font-family: 'Orbitron', sans-serif;
+font-size: 1.25rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 3px;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+backdrop-filter: blur(15px);
+box-shadow:
+0 0 30px rgba(255, 255, 255, 0.3),
+inset 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+@media (min-width: 768px) {
+.mega-btn {
+font-size: 1.5rem;
+}
+}
+
+.mega-btn::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+transition: left 0.5s ease;
+}
+
+.mega-btn:hover::after {
+left: 100%;
+}
+
+.mega-btn:hover {
+transform: scale(1.08);
+border-color: rgba(255, 255, 255, 0.9);
+box-shadow:
+0 0 50px rgba(255, 255, 255, 0.5),
+inset 0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+/* Secondary Buttons */
+.secondary-btn {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+border: 2px solid rgba(255, 255, 255, 0.2);
+color: #e0e0e0;
+font-family: 'Orbitron', sans-serif;
+font-size: 1rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+backdrop-filter: blur(10px);
+}
+
+@media (min-width: 768px) {
+.secondary-btn {
+font-size: 1.125rem;
+}
+}
+
+.secondary-btn:hover {
+transform: scale(1.05);
+border-color: rgba(255, 255, 255, 0.5);
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+color: #ffffff;
+}
+
+/* Floating Animation */
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-20px); }
+}
+
+.float-anim {
+animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.pulse-anim {
+animation: pulse 2s ease-in-out infinite;
+}
+
+/* Glow Animation */
+@keyframes glow {
+0%, 100% {
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+50% {
+box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+}
+
+.glow-anim {
+animation: glow 2s ease-in-out infinite;
+}
+
+/* Cyber Badge */
+.cyber-badge {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+border: 2px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+display: inline-block;
+padding: 0.75rem 1.5rem;
+font-family: 'Orbitron', sans-serif;
+font-size: 1rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 2px;
+transition: all 0.3s ease;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.cyber-badge:hover {
+transform: scale(1.05);
+box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* Stats Box */
+.stats-box {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+border: 1px solid rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(10px);
+box-shadow:
+0 0 20px rgba(255, 255, 255, 0.1),
+inset 0 0 20px rgba(255, 255, 255, 0.05);
+transition: all 0.4s ease;
+}
+
+.stats-box:hover {
+transform: translateY(-10px);
+border-color: rgba(255, 255, 255, 0.3);
+box-shadow:
+0 0 40px rgba(255, 255, 255, 0.2),
+inset 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Formation Card */
+.formation-card {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+border: 1px solid rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(15px);
+box-shadow:
+0 0 30px rgba(255, 255, 255, 0.1),
+inset 0 0 30px rgba(255, 255, 255, 0.02);
+transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+position: relative;
+overflow: hidden;
+}
+
+.formation-card::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+opacity: 0;
+transition: opacity 0.5s ease;
+}
+
+.formation-card:hover::before {
+opacity: 1;
+}
+
+.formation-card:hover {
+transform: translateY(-15px) scale(1.03);
+border-color: rgba(255, 255, 255, 0.25);
+box-shadow:
+0 0 50px rgba(255, 255, 255, 0.2),
+inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+/* Urgency Banner */
+.urgency {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+border: 2px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(15px);
+box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+animation: glow 2s ease-in-out infinite;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+background: rgba(0, 0, 0, 0.98);
+backdrop-filter: blur(20px);
+transform: translateX(100%);
+transition: transform 0.3s ease;
+border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu.active {
+transform: translateX(0);
+}
+
+/* Counter */
+.counter {
+font-family: 'Orbitron', sans-serif;
+font-size: 3rem;
+font-weight: 900;
+color: #ffffff;
+text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 768px) {
+.counter {
+font-size: 4rem;
+}
+}
+
+/* Checkmark */
+.checkmark {
+color: #ffffff;
+font-size: 1.5rem;
+filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* Trust Badge */
+.trust-badge {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+border: 1px solid rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(10px);
+padding: 1rem 1.5rem;
+border-radius: 50px;
+display: inline-flex;
+align-items: center;
+gap: 0.75rem;
+font-weight: 700;
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+transform: scale(1.05);
+box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Premium Membership Card */
+.membership-card {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+border: 2px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(20px);
+box-shadow:
+0 0 50px rgba(255, 255, 255, 0.2),
+inset 0 0 50px rgba(255, 255, 255, 0.05);
+transition: all 0.5s ease;
+position: relative;
+overflow: hidden;
+}
+
+.membership-card::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+.membership-card:hover {
+transform: scale(1.03);
+border-color: rgba(255, 255, 255, 0.5);
+box-shadow:
+0 0 80px rgba(255, 255, 255, 0.4),
+inset 0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+/* Science Section */
+.science-carousel {
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+gap: 1.5rem;
+padding: 2rem 0;
+scrollbar-width: thin;
+scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+}
+
+.science-carousel::-webkit-scrollbar {
+height: 8px;
+}
+
+.science-carousel::-webkit-scrollbar-track {
+background: rgba(255, 255, 255, 0.05);
+border-radius: 10px;
+}
+
+.science-carousel::-webkit-scrollbar-thumb {
+background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
+border-radius: 10px;
+}
+
+.science-card {
+min-width: 320px;
+max-width: 350px;
+scroll-snap-align: center;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+border: 1px solid rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(10px);
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+border-radius: 1.5rem;
+padding: 2rem;
+transition: all 0.3s ease;
+}
+
+.science-card:hover {
+transform: translateY(-10px);
+border-color: rgba(255, 255, 255, 0.3);
+box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.science-icon {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2.5rem;
+border: 2px solid rgba(255, 255, 255, 0.3);
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+margin-bottom: 1.5rem;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Certification badges */
+.cert-badge {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+border: 2px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+padding: 0.5rem 1rem;
+border-radius: 50px;
+font-weight: 800;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+font-size: 0.9rem;
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Carousel arrows */
+.carousel-arrow {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+border: 2px solid rgba(255, 255, 255, 0.3);
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(10px);
+}
+
+.carousel-arrow:hover {
+transform: scale(1.1);
+border-color: rgba(255, 255, 255, 0.5);
+box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* Holographic Effect */
+.holographic {
+position: relative;
+}
+
+.holographic::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+background-size: 200% 200%;
+animation: hologram 3s linear infinite;
+pointer-events: none;
+}
+
+@keyframes hologram {
+0% { background-position: 0% 0%; }
+100% { background-position: 200% 200%; }
+}
+
+/* Text Glow */
+.text-glow {
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+0 0 20px rgba(255, 255, 255, 0.3),
+0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Hexagon Pattern (subtle) */
+.hex-pattern {
+background-image:
+radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+background-size: 30px 30px;
+}
+
+/* Shine Effect */
+@keyframes shine {
+0% { left: -100%; }
+100% { left: 150%; }
+}
+
+.shine {
+position: relative;
+overflow: hidden;
+}
+
+.shine::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 50%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+animation: shine 3s infinite;
+transform: skewX(-25deg);
+}
+
+/* Old Price Strikethrough */
+.old-price {
+position: relative;
+color: #808080;
+}
+
+.old-price::after {
+content: '';
+position: absolute;
+left: -5%;
+top: 50%;
+width: 110%;
+height: 2px;
+background: #ffffff;
+transform: rotate(-5deg);
+}
+
+/* Neon Border */
+.neon-border {
+border: 2px solid rgba(255, 255, 255, 0.3);
+box-shadow:
+0 0 10px rgba(255, 255, 255, 0.2),
+inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+.counter {
+font-size: 2.5rem;
+}
+}
+</style>
+</head>
+<body class="text-white">
+
+<!-- Starfield Background -->
+<div class="starfield" id="starfield"></div>
+
+<!-- MEGA PROMO BANNER -->
+<div class="promo-banner text-white py-6 px-6 text-center overflow-hidden relative scanlines">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex flex-col items-center gap-3">
+<div class="flex items-center gap-3 flex-wrap justify-center">
+<span class="text-3xl md:text-4xl pulse-anim">🔥</span>
+<p class="text-xl md:text-3xl font-black uppercase text-glow" style="font-family: 'Orbitron', sans-serif;">
+LANCEMENT SPÉCIAL : 3 FORMATIONS RÉVOLUTIONNAIRES À PRIX CASSÉ !
+</p>
+<span class="text-3xl md:text-4xl pulse-anim">🔥 Cadeau de bienvenue ! 49€ </span>
+</div>
+<p class="text-lg md:text-2xl font-bold">
+⏰ Plus que <span class="text-white text-2xl md:text-3xl font-black pulse-anim">25 PLACES</span> disponibles à ce prix !
+</p>
+<button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+class="cyber-btn px-6 py-3 md:px-8 md:py-4 rounded-full mt-2">JE FONCE ! 🚀
+</button>
+
+  
+</button>
+</div>
+</div>
+</div>
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/20 shadow-2xl">
+<div class="max-w-7xl mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="text-3xl md:text-4xl lg:text-5xl font-black" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-white text-glow">VARILEO®</span>
+<span class="text-2xl md:text-3xl ml-2 float-anim">SHOP</span>
+</div>
+</div>
+
+<!-- Desktop Menu -->
+<div class="hidden lg:flex items-center space-x-6">
+<a href="#formations" class="text-xl font-bold text-gray-300 hover:text-white transition-colors hover:scale-105 transform" style="font-family: 'Rajdhani', sans-serif;">🎓 Formations</a>
+<a href="#recettes" class="text-xl font-bold text-gray-300 hover:text-white transition-colors hover:scale-105 transform" style="font-family: 'Rajdhani', sans-serif;">🍳 Recettes</a>
+<a href="#science" class="text-xl font-bold text-gray-300 hover:text-white transition-colors hover:scale-105 transform" style="font-family: 'Rajdhani', sans-serif;">🔬 Science</a>
+<a href="#temoignages" class="text-xl font-bold text-gray-300 hover:text-white transition-colors hover:scale-105 transform" style="font-family: 'Rajdhani', sans-serif;">⭐ Témoignages</a>
+<a href="#membership" class="text-xl font-bold text-gray-300 hover:text-white transition-colors hover:scale-105 transform" style="font-family: 'Rajdhani', sans-serif;">👑 Membership</a>
+</div>
+
+<div class="flex items-center space-x-4">
+<button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+class="cyber-btn hidden lg:block px-6 py-3 rounded-full">
+REJOINDRE ! 🎯
+</button>
+<button class="lg:hidden text-white" onclick="document.getElementById('mobileMenu').classList.add('active')">
+<i class="fas fa-bars text-3xl"></i>
+</button>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-full z-50 lg:hidden">
+<div class="p-6">
+<div class="flex justify-between items-center mb-8">
+<div class="text-3xl font-black text-glow" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-white">VARILEO</span>
+</div>
+<button onclick="document.getElementById('mobileMenu').classList.remove('active')">
+<i class="fas fa-times text-3xl text-white"></i>
+</button>
+</div>
+<div class="space-y-6">
+<a href="#formations" class="block text-2xl font-black text-white" onclick="document.getElementById('mobileMenu').classList.remove('active')" style="font-family: 'Rajdhani', sans-serif;">🎓 Formations</a>
+<a href="#recettes" class="block text-2xl font-black text-white" onclick="document.getElementById('mobileMenu').classList.remove('active')" style="font-family: 'Rajdhani', sans-serif;">🍳 Recettes</a>
+<a href="#science" class="block text-2xl font-black text-white" onclick="document.getElementById('mobileMenu').classList.remove('active')" style="font-family: 'Rajdhani', sans-serif;">🔬 Science</a>
+<a href="#temoignages" class="block text-2xl font-black text-white" onclick="document.getElementById('mobileMenu').classList.remove('active')" style="font-family: 'Rajdhani', sans-serif;">⭐ Témoignages</a>
+<a href="#membership" class="block text-2xl font-black text-white" onclick="document.getElementById('mobileMenu').classList.remove('active')" style="font-family: 'Rajdhani', sans-serif;">👑 Membership</a>
+</div>
+</div>
+</div>
+
+<!-- Hero Section -->
+<section class="py-20 px-6 cyber-grid hex-pattern scanlines">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<div class="mb-8">
+<span class="cyber-badge text-xl md:text-2xl">
+⚡ DÉJÀ 1400+ VIES TRANSFORMÉES
+</span>
+</div>
+<h1 class="text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight text-glow" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-white">TRANSFORMEZ</span><br>
+<span class="text-white">VOTRE VIE</span><br>
+<span class="text-white holographic">
+EN 30 JOURS ! 🚀
+</span>
+</h1>
+<p class="text-xl md:text-3xl lg:text-4xl font-bold text-gray-300 mb-6 leading-relaxed" style="font-family: 'Rajdhani', sans-serif;">
+Gagnez <span class="text-white text-3xl md:text-5xl text-glow">180 HEURES</span> par an,<br>
+Économisez l'équivalent d'<span class="text-white text-3xl md:text-5xl text-glow">1 iPhone 16 Pro</span>,<br>
+Devenez la <span class="text-white text-3xl md:text-5xl text-glow">MEILLEURE VERSION</span> de vous-même ! 💪
+</p>
+
+<!-- Trust Badges -->
+<div class="flex flex-wrap gap-4 justify-center mb-12">
+<div class="trust-badge">
+<i class="fas fa-shield-alt text-white text-2xl"></i>
+<span class="text-white">Paiement 100% Sécurisé</span>
+</div>
+<div class="trust-badge">
+<i class="fas fa-medal text-white text-2xl"></i>
+<span class="text-white">Garantie 7 Jours</span>
+</div>
+<div class="trust-badge">
+<i class="fas fa-check-circle text-white text-2xl"></i>
+<span class="text-white">Satisfait ou Remboursé</span>
+</div>
+</div>
+</div>
+
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+<div class="stats-box rounded-3xl p-8 text-center">
+<div class="text-6xl mb-3 float-anim">⭐</div>
+<div class="counter">4.9/5</div>
+<p class="text-xl font-bold text-gray-300 mt-2">Note moyenne</p>
+</div>
+<div class="stats-box rounded-3xl p-8 text-center">
+<div class="text-6xl mb-3 float-anim" style="animation-delay: -1s;">👥</div>
+<div class="counter">1400+</div>
+<p class="text-xl font-bold text-gray-300 mt-2">Membres actifs</p>
+</div>
+<div class="stats-box rounded-3xl p-8 text-center">
+<div class="text-6xl mb-3 float-anim" style="animation-delay: -2s;">⏰</div>
+<div class="counter">180h</div>
+<p class="text-xl font-bold text-gray-300 mt-2">Gagnées par an</p>
+</div>
+<div class="stats-box rounded-3xl p-8 text-center">
+<div class="text-6xl mb-3 float-anim" style="animation-delay: -3s;">🎯</div>
+<div class="counter">89%</div>
+<p class="text-xl font-bold text-gray-300 mt-2">Taux de réussite</p>
+</div>
+</div>
+
+<!-- CTA Buttons -->
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+class="mega-btn px-8 py-4 md:px-12 md:py-6 rounded-full w-full md:w-auto shine">
+🚀 JE REJOINS FORGE !
+</button>
+<button onclick="window.location.href='#temoignages'" class="secondary-btn px-8 py-4 md:px-12 md:py-6 rounded-full w-full md:w-auto">
+👀 VOIR RÉSULTATS
+</button>
+</div>
+</div>
+</section>
+
+<!-- Urgency Section -->
+<section class="py-16 px-6">
+<div class="max-w-5xl mx-auto">
+<div class="urgency rounded-3xl p-10 text-center text-white">
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<div class="text-6xl pulse-anim">⚠️</div>
+<div>
+<p class="text-2xl md:text-3xl lg:text-4xl font-black mb-2" style="font-family: 'Orbitron', sans-serif;">ATTENTION : OFFRE ULTRA LIMITÉE !</p>
+<p class="text-lg md:text-xl lg:text-2xl font-bold" style="font-family: 'Rajdhani', sans-serif;">Plus que 25 places au prix de lancement. Ne ratez pas cette opportunité unique ! 🔥</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+  <section id="agents" class="py-20 px-6 cyber-grid scanlines">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black mb-4 text-glow" style="font-family: 'Orbitron', sans-serif;">LA GARANTIE D'EXÉCUTION</h2>
+                <p class="text-xl md:text-3xl font-bold text-gray-300 mb-6" style="font-family: 'Rajdhani', sans-serif;">
+                    L'ÉCHEC PAR DÉMOTIVATION EST IMPOSSIBLE. VOUS N'ÊTES JAMAIS SEUL.
+                </p>
+                <p class="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto">
+                    Votre adhésion active un contact direct avec nos 3 Agents d'Intelligence Supérieure. Ils ne sont pas des "coachs". Ils sont votre système de relance stratégique pour garantir votre exécution et empêcher l'abandon.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="cyber-card p-8 text-center rounded-3xl">
+                    <div class="text-6xl mb-4 text-white text-glow">
+                        <i class="fas fa-landmark"></i> </div>
+                    <h3 class="text-3xl font-black mb-3" style="font-family: 'Orbitron', sans-serif;">AGENT KRONOS</h3>
+                    <p class="text-lg font-bold text-gray-300 mb-4">L'Impitoyable Calculateur (Finance)</p>
+                    <p class="text-md text-gray-400">
+                        KRONOS analyse vos finances. Il vous relance pour garantir que chaque action maximise votre ROI. La perte de temps est une erreur qu'il corrige.
+                    </p>
+                </div>
+
+                <div class="cyber-card p-8 text-center rounded-3xl">
+                    <div class="text-6xl mb-4 text-white text-glow">
+                        <i class="fas fa-leaf"></i> </div>
+                    <h3 class="text-3xl font-black mb-3" style="font-family: 'Orbitron', sans-serif;">AGENT HÉRA</h3>
+                    <p class="text-lg font-bold text-gray-300 mb-4">La Stratège Biochimique (Nutrition)</p>
+                    <p class="text-md text-gray-400">
+                        HÉRA calibre votre énergie. Elle vous suit pour s'assurer que votre protocole est appliqué sans faille pour une performance maximale. L'équilibre est sa loi.
+                    </p>
+                </div>
+
+                <div class="cyber-card p-8 text-center rounded-3xl">
+                    <div class="text-6xl mb-4 text-white text-glow">
+                        <i class="fas fa-dumbbell"></i> </div>
+                    <h3 class="text-3xl font-black mb-3" style="font-family: 'Orbitron', sans-serif;">AGENT EUCLIDE</h3>
+                    <p class="text-lg font-bold text-gray-300 mb-4">L'Ingénieur du Corps (Exécution)</p>
+                    <p class="text-md text-gray-400">
+                        EUCLIDE impose la structure parfaite. Il vous anime pour que votre exécution soit rigoureuse et sans blessure. La procrastination est une erreur de structure.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+             
+<!-- Formations Section -->
+<section id="formations" class="py-20 px-6 cyber-grid hex-pattern scanlines">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<div class="mb-6">
+<span class="cyber-badge text-xl md:text-2xl">
+🎓 EN LANCEMENT - PRIX SPÉCIAL
+</span>
+</div>
+<h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">
+LES 3 FORMATIONS QUI VONT<br>
+<span class="text-white">CHANGER VOTRE VIE ! 🎯</span>
+</h2>
+<p class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-300" style="font-family: 'Rajdhani', sans-serif;">
+Normalement <span class="old-price">67€/mois</span> ➜ <span class="text-white">Aujourd'hui : 47€ dans FORGE Membership !</span>
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- Formation 1: Finance -->
+<div class="formation-card rounded-3xl p-8">
+<div class="text-center mb-6">
+<div class="text-8xl mb-4 float-anim">💰</div>
+<h3 class="text-2xl md:text-3xl font-black text-white mb-3" style="font-family: 'Orbitron', sans-serif;">FINANCE &<br>Capital</h3>
+<div class="bg-white/10 border-2 border-white/30 text-white px-6 py-3 rounded-full inline-block font-black text-xl backdrop-blur-md mb-4">
+✓ INCLUS
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Gérer son budget comme un MILLIARDAIRE 💎</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Techniques d'épargne qui FONCTIONNENT vraiment 📈</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Trading raisonnable (pas de casino !) 🎲</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Multiplier ses revenus intelligemment 🚀</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Atteindre la liberté financière 🏖️</p>
+</div>
+</div>
+<div class="bg-white/5 border border-white/20 rounded-2xl p-4 mb-6 backdrop-blur-md">
+<p class="text-center text-lg font-black text-white">
+📊 L'équivalent d'1 iPhone 16 Pro économisé/an !
+</p>
+</div>
+</div>
+
+<!-- Formation 2: Nutrition -->
+<div class="formation-card rounded-3xl p-8 relative">
+<div class="absolute -top-4 -right-4 bg-white/20 border-2 border-white/50 backdrop-blur-md text-white px-6 py-3 rounded-full font-black text-xl pulse-anim" style="font-family: 'Orbitron', sans-serif;">
+🔥 TOP 1
+</div>
+<div class="text-center mb-6">
+<div class="text-8xl mb-4 float-anim" style="animation-delay: -1s;">🥗</div>
+<h3 class="text-2xl md:text-3xl font-black text-white mb-3" style="font-family: 'Orbitron', sans-serif;">NUTRITIONNISTE<br>PRO</h3>
+<div class="bg-white/10 border-2 border-white/30 text-white px-6 py-3 rounded-full inline-block font-black text-xl backdrop-blur-md mb-4">
+✓ INCLUS
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Santé optimale & énergie DÉBORDANTE ⚡</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Sommeil réparateur (enfin !) 😴</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Récupération ultra-rapide 🏃</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Confiance en soi DÉCUPLÉE 💪</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Prise de muscle facile (secrets révélés) 🦾</p>
+</div>
+</div>
+<div class="bg-white/5 border border-white/20 rounded-2xl p-4 mb-6 backdrop-blur-md">
+<p class="text-center text-lg font-black text-white">
+🎯 +42% d'amélioration nutritionnelle !
+</p>
+</div>
+</div>
+
+<!-- Formation 3: Sport -->
+<div class="formation-card rounded-3xl p-8">
+<div class="text-center mb-6">
+<div class="text-8xl mb-4 float-anim" style="animation-delay: -2s;">🏋️</div>
+<h3 class="text-2xl md:text-3xl font-black text-white mb-3" style="font-family: 'Orbitron', sans-serif;">RENFORCEMENT<br>MUSCULAIRE</h3>
+<div class="bg-white/10 border-2 border-white/30 text-white px-6 py-3 rounded-full inline-block font-black text-xl backdrop-blur-md mb-4">
+✓ INCLUS
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Se muscler sans se blesser (méthode pro) 🛡️</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Abdos visibles RAPIDEMENT 🔥</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Techniques validées scientifiquement 🔬</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Programme adapté à VOTRE niveau 📊</p>
+</div>
+<div class="flex items-start gap-3">
+<i class="fas fa-check-circle checkmark mt-1"></i>
+<p class="text-lg font-bold text-gray-300">Résultats en 21 jours garantis ✅</p>
+</div>
+</div>
+<div class="bg-white/5 border border-white/20 rounded-2xl p-4 mb-6 backdrop-blur-md">
+<p class="text-center text-lg font-black text-white">
+💪 Transformez votre corps en 3 semaines !
+</p>
+</div>
+
+</div>
+</div>
+
+<!-- Mega Value Proposition -->
+<div class="cyber-card rounded-3xl p-10 text-center mb-12 holographic">
+<h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6" style="font-family: 'Orbitron', sans-serif;">
+🎁 VALEUR TOTALE : <span class="old-price">67€</span>
+</h3>
+<p class="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-6 text-glow">
+AUJOURD'HUI : 47 € Tout inclus dans FORGE Membership ! 😱
+</p>
+<p class="text-xl md:text-2xl font-bold text-gray-300 mb-8">
+LIMITÉ ! Soit une économie INSANE de <span class="text-white text-3xl md:text-4xl text-glow">20€</span> ! 🤯
+</p>
+<button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+class="mega-btn px-10 py-4 md:px-16 md:py-6 rounded-full shine">
+JE REJOINS FORGE ! 🎯
+</button>
+</div>
+</div>
+</section>
+
+<!-- Recettes Section -->
+<section id="recettes" class="py-20 px-6 cyber-grid hex-pattern scanlines">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-white">32 RECETTES PREMIUM</span> PAR MOIS ! 🍔
+</h2>
+<p class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-300" style="font-family: 'Rajdhani', sans-serif;">
+Ultra évoluées, délicieuses, faciles à apprendre ! 🚀
+</p>
+</div>
+            </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="cyber-card rounded-3xl p-6 cursor-pointer">
+                <div class="bg-gradient-to-br from-white/10 to-white/5 h-56 rounded-2xl mb-6 flex items-center justify-center border border-white/20"><div class="text-9xl float-anim">🥩</div></div>
+                <h3 class="text-2xl font-black text-white mb-3" style="font-family: 'Orbitron', sans-serif;">PROTOCOLE PROTÉINE VITESSE 🔥</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">⚡ 15 min</span>
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">👨‍🍳 Débutant</span>
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">🧠 Focus Power</span>
+                </div>
+                <div class="p-4 text-center font-black text-xl border-t border-white/20 pt-4 mt-6">
+                    <i class="fas fa-utensils text-xl mr-2"></i> INCLUS dans le FORGE Membership
+                </div>
+            </div>
+
+            <div class="cyber-card rounded-3xl p-6 cursor-pointer">
+                <div class="bg-gradient-to-br from-white/10 to-white/5 h-56 rounded-2xl mb-6 flex items-center justify-center border border-white/20"><div class="text-9xl float-anim" style="animation-delay: -0.5s;">🍝</div></div>
+                <h3 class="text-2xl font-black text-white mb-3" style="font-family: 'Orbitron', sans-serif;">LE FOCUS FUEL : PÂTES ULTRA-COGNITIVES ✨</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">⚡ 12 min</span>
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">👨‍🍳 Débutant</span>
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">🧠 Cerveau</span>
+                </div>
+                <div class="p-4 text-center font-black text-xl border-t border-white/20 pt-4 mt-6">
+                    <i class="fas fa-utensils text-xl mr-2"></i> INCLUS dans le FORGE Membership
+                </div>
+            </div>
+            
+             <div class="cyber-card rounded-3xl p-6 cursor-pointer">
+                <div class="bg-gradient-to-br from-white/10 to-white/5 h-56 rounded-2xl mb-6 flex items-center justify-center border border-white/20"><div class="text-9xl float-anim" style="animation-delay: -1s;">🥑</div></div>
+                <h3 class="text-2xl font-black text-white mb-3" style="font-family: 'Orbitron', sans-serif;">ACTIVATION MÉTABOLIQUE MATINALE 🚀</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">⚡ 5 min</span>
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">👨‍🍳 Facile</span>
+                    <span class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full font-bold text-sm backdrop-blur-md">💪 Énergie Max</span>
+                </div>
+                <div class="p-4 text-center font-black text-xl border-t border-white/20 pt-4 mt-6">
+                    <i class="fas fa-utensils text-xl mr-2"></i> INCLUS dans le FORGE Membership
+   </div>            
+</div>
+        
+       </div>
+        
+        <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-12">
+            <button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+                    class="mega-btn px-8 py-4 md:px-12 md:py-6 rounded-full w-full md:w-auto shine">
+                J'OPTIMISE MA NUTRITION ET MON FOCUS ! 🎯</button>
+        </div>
+        
+    </div>
+</section>
+<div class="mt-16 max-w-4xl mx-auto">
+    <div class="cyber-card rounded-3xl p-8 md:p-12">
+        <h3 class="text-3xl md:text-4xl font-black text-white mb-6 text-center text-glow" style="font-family: 'Orbitron', sans-serif;">
+            🏆 LE SYSTÈME FORGE (VOTRE AVANTAGE COMPÉTITIF)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="bg-white/5 border border-white/20 rounded-2xl p-6 backdrop-blur-md neon-border">
+                <div class="text-4xl mb-3">🧠</div>
+                <h4 class="text-xl font-black text-white mb-2">CHALLENGES DOPAMINE</h4>
+                <p class="text-gray-400 font-bold">Nous utilisons la neuro-science pour rendre l'effort agréable. Atteindre la discipline n'a jamais été aussi motivant.</p>
+            </div>
+            <div class="bg-white/5 border border-white/20 rounded-2xl p-6 backdrop-blur-md neon-border">
+                <div class="text-4xl mb-3">🎯</div>
+                <h4 class="text-xl font-black text-white mb-2">SUIVIS GUIDÉS 30 JOURS</h4>
+                <p class="text-gray-400 font-bold">Un protocole d'actions journalières ultra-précises pour garantir l'atteinte de votre premier objectifs.</p>
+            </div>
+            
+            <div class="bg-white/5 border border-white/20 rounded-2xl p-6 backdrop-blur-md">
+                <div class="text-4xl mb-3">🔬</div>
+                <h4 class="text-xl font-black text-white mb-2">VALIDATION SCIENTIFIQUE</h4>
+                <p class="text-gray-400 font-bold">Chaque programme est basé sur des études *peer-reviewed* pour des résultats certifiés.</p>
+            </div>
+            <div class="bg-white/5 border border-white/20 rounded-2xl p-6 backdrop-blur-md">
+                <div class="text-4xl mb-3">🎓</div>
+                <h4 class="text-xl font-black text-white mb-2">EXPERTISE CERTIFIÉE</h4>
+                <p class="text-gray-400 font-bold">Nos coachs sont diplômés en France en nutrition, sport et finance.</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Témoignages Section -->
+<section id="temoignages" class="py-20 px-6 cyber-grid hex-pattern scanlines">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<div class="mb-6">
+<span class="cyber-badge text-xl md:text-2xl">
+⭐ ILS L'ONT FAIT, POURQUOI PAS VOUS ?
+</span>
+</div>
+<h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">
+ILS SONT DÉJÀ<br>
+<span class="text-white">1400+ À SE TRANSFORMER ! 💬</span>
+</h2>
+</div>
+
+<!-- Social Proof -->
+<div class="mt-16 text-center">
+<div class="cyber-card rounded-3xl p-10 inline-block holographic">
+<p class="text-2xl md:text-3xl font-black text-white mb-4" style="font-family: 'Orbitron', sans-serif;">
+📊 RÉSULTATS MOYENS DE NOS MEMBRES :
+</p>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2 text-glow">94%</div>
+<p class="text-lg md:text-xl font-bold text-gray-300">Satisfaction</p>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2 text-glow">180h</div>
+<p class="text-lg md:text-xl font-bold text-gray-300">Gagnées/an</p>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2 text-glow">1📱</div>
+<p class="text-lg md:text-xl font-bold text-gray-300">iPhone 16 Pro économisé</p>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-black text-white mb-2 text-glow">89%</div>
+<p class="text-lg md:text-xl font-bold text-gray-300">Réussite</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FORGE Membership Section -->
+<section id="membership" class="py-20 px-6 cyber-grid hex-pattern scanlines">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<div class="mb-6">
+<span class="cyber-badge text-xl md:text-2xl">
+👑 L'EXPÉRIENCE ULTIME
+</span>
+</div>
+<h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-white">FORGE MEMBERSHIP</span><br>
+LA TRANSFORMATION TOTALE ! 💎
+</h2>
+<p class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-300" style="font-family: 'Rajdhani', sans-serif;">
+Rejoignez l'élite et transformez votre vie dès aujourd'hui !
+</p>
+</div>
+
+<!-- FORGE Membership Card -->
+<div class="max-w-4xl mx-auto mb-16">
+<div class="membership-card rounded-3xl p-8 md:p-12 text-white relative">
+<div class="absolute -top-6 -right-6 bg-white/20 border-2 border-white/50 backdrop-blur-md text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-black text-xl md:text-2xl pulse-anim z-10" style="font-family: 'Orbitron', sans-serif;">
+⭐ PROMO
+</div>
+<div class="text-center mb-8 relative z-10">
+<div class="text-6xl md:text-8xl mb-6 float-anim">👑</div>
+<h3 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">FORGE MEMBERSHIP</h3>
+<div class="mb-6">
+<p class="text-3xl md:text-4xl line-through opacity-50 mb-2">67€/mois</p>
+<div class="flex items-center justify-center gap-4 flex-wrap">
+<span class="text-5xl md:text-6xl lg:text-7xl font-black text-glow" style="font-family: 'Orbitron', sans-serif;">47€</span>
+<div class="text-left">
+<p class="text-2xl md:text-3xl font-bold">/mois</p>
+<p class="text-base md:text-xl bg-white/20 border-2 border-white/30 backdrop-blur-md text-white px-4 py-2 rounded-full font-black inline-block">
+💚 ÉCONOMISEZ 20€/MOIS !
+</p>
+</div>
+</div>
+</div>
+<div class="bg-white/15 border-2 border-white/40 backdrop-blur-md text-white px-6 py-3 md:px-8 md:py-4 rounded-full inline-block font-black text-xl md:text-2xl mb-6 glow-anim">
+🔥 Cadeau de bienvenue d'une valeur de 49 € !
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
+<div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6">
+<h4 class="text-xl md:text-2xl font-black mb-4 flex items-center gap-3" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-3xl md:text-4xl">🎓</span>
+3 FORMATIONS COMPLÈTES
+</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Finance & Investissement (INCLUS)</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Nutritionniste Pro (INCLUS)</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Renforcement Musculaire (INCLUS)</p>
+</div>
+</div>
+</div>
+
+<div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6">
+<h4 class="text-xl md:text-2xl font-black mb-4 flex items-center gap-3" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-3xl md:text-4xl">🍽️</span>
+32 RECETTES PREMIUM
+</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">32 RECETTES STRATÉGIQUES : Accès immédiat au seul système alimentaire macro-calibré qui élimine l'échec nutritionnel.</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">UPGRADE MENSUEL GARANTI : 8 nouvelles fiches d'exécution/semaine (Protocole & Macros inclus). Sans exception, ce contenu est conçu pour la performance, pas pour le plaisir.</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">LE TEMPS EST VOTRE ROI : Chaque recette est optimisée pour une préparation < 20 minutes. Nous n'acceptons pas de gaspiller le temps de nos membres.</p>
+</div>
+</div>
+</div>
+
+<div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6">
+<h4 class="text-xl md:text-2xl font-black mb-4 flex items-center gap-3" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-3xl md:text-4xl">🎯</span>
+SUIVI PERSONNALISÉ
+</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Votre adhésion vous donne un accès direct à l'intelligence de nos trois Agents experts (KRONOS, HÉRA, EUCLIDE).🇫🇷</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">La qualité de l'analyse est garantie à 100 % : vous n'êtes jamais seul, car ce système vous relance activement si votre progression ralentit.</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Support VIP</p>
+</div>
+</div>
+</div>
+
+<div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6">
+<h4 class="text-xl md:text-2xl font-black mb-4 flex items-center gap-3" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-3xl md:text-4xl">🏆</span>
+CHALLENGE MENSUEL
+</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Le VECTEUR NOMOS active la discipline chaque mois. Un nouveau Protocole d'Exécution (Finances, Nutrition, Renforcement Musuclaire) est lancé pour forcer l'action et éliminer la procrastination.
+  </p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">Bénéfice direct : Des résultats garantis, des récompenses exclusives (Ebooks ou Contenus Rares) et une motivation de groupe sans faille.
+</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-white text-xl"></i>
+<p class="text-base md:text-lg font-bold">C'est le système qui garantit la progression.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-white/15 border-2 border-white/30 backdrop-blur-md rounded-2xl p-6 mb-8 relative z-10">
+<p class="text-center text-xl md:text-2xl font-black text-white" style="font-family: 'Orbitron', sans-serif;">
+🎁 VALEUR TOTALE : <span class="old-price">67€/mois</span> ➜ SEULEMENT 47€/mois !
+<span class="text-white text-glow">Économie de 20€/mois !</span>
+</p>
+</div>
+ <button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+class="mega-btn w-full py-6 md:py-8 rounded-full relative z-10 shine">
+  🚀 JE REJOINS FORGE MAINTENANT ! 👑
+</button>
+</button>
+
+<p class="text-center text-base md:text-lg font-bold mt-6 relative z-10">
+💚 Résiliation sous 14 jours - Satisfaction garantie ou remboursé !
+</p>
+</div>
+</div>
+
+<!-- Guarantee -->
+<div class="cyber-card rounded-3xl p-10 text-center neon-border">
+<div class="text-6xl md:text-8xl mb-6 pulse-anim">✅</div>
+<h3 class="text-3xl md:text-4xl font-black text-white mb-4 text-glow" style="font-family: 'Orbitron', sans-serif;">GARANTIE SATISFAIT OU REMBOURSÉ !</h3>
+<p class="text-xl md:text-2xl font-bold text-gray-300 mb-6">
+Vous avez <span class="text-white text-2xl md:text-3xl text-glow">14 JOURS</span> pour tester. Si vous n'êtes pas 100% satisfait, on vous rembourse intégralement. ZÉRO RISQUE ! 💚
+</p>
+<p class="text-lg md:text-xl font-bold text-gray-400">
++ de 1400 membres nous font confiance. Rejoignez FORGE maintenant ! 🚀
+</p>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-20 px-6 cyber-grid hex-pattern scanlines">
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<div class="cyber-card rounded-3xl p-12 holographic">
+<h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">
+PRÊT À REJOINDRE<br>
+<span class="text-white">FORGE</span> ? 🚀
+</h2>
+<p class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-300 mb-8" style="font-family: 'Rajdhani', sans-serif;">
+Rejoignez les <span class="text-white text-3xl md:text-4xl text-glow">1400+</span> personnes qui ont déjà fait le choix de la transformation ! 💪
+</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button onclick="window.location.href='https://varileo-store.github.io/REDIRECTION/'"
+class="mega-btn px-8 py-4 md:px-12 md:py-6 rounded-full w-full md:w-auto shine">
+OUI, JE REJOINS ! 🔥
+</button>
+<button onclick="window.location.href='#formations'" class="secondary-btn px-8 py-4 md:px-12 md:py-6 rounded-full w-full md:w-auto">
+VOIR FORMATIONS 🎓
+</button>
+</div>
+<p class="text-base md:text-lg font-bold text-gray-400 mt-8">
+⚡ Plus que 25 places au prix de lancement ⚡
+</p>
+</div>
+</div>
+  <!-- Begin Brevo Form -->
+<!-- START - We recommend to place the below code in head tag of your website html  -->
+<style>
+  @font-face {
+    font-display: block;
+    font-family: Roboto;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 600;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 700;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+  }
+
+  #sib-container input:-ms-input-placeholder {
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: #96aac0;
+  }
+
+  #sib-container input::placeholder {
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: #96aac0;
+  }
+
+  #sib-container textarea::placeholder {
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: #96aac0;
+  }
+
+  #sib-container a {
+    text-decoration: underline;
+    color: #2BB2FC;
+  }
+</style>
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+<!--  END - We recommend to place the above code in head tag of your website html -->
+
+<!-- START - We recommend to place the below code where you want the form in your website html  -->
+<div class="sib-form" style="text-align: center; background-color: transparent;">
+  <div id="sib-form-container" class="sib-form-container">
+    <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+          ⚠️ Problème détecté
+        </span>
+      </div>
+    </div>
+    <div></div>
+    <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+          💎 Bravo ! Vous avez réussi avec succès !
+        </span>
+      </div>
+    </div>
+    <div></div>
+    <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color: transparent; max-width:540px; border-radius:3px; border-width:1px; border-color:#eff2f7; border-style:solid; direction:ltr;">
+      <form id="sib-form" method="POST" action="https://0a088623.sibforms.com/serve/MUIFAAN-ciOE6dKrMzXUWVxd1sUz23FM41ETpvbdxvKjSTZXReXZvQntLneM_sI_-hXbIOu7PzYkZz8sIr_O9pkWEdpMOGlU4xz1QbxOFNYM7KiwADsGoq7XxFlPBZ28MFz-RdHLpQGXKAnPAQtISRydZdSTbqPkSskUc446udY5FwCD-ott17fvWSYNtJqOeY4aCoj6kBSO4iSsMg==" data-type="subscription">
+        <div style="padding: 8px 0;">
+          <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#08090b; background-color:transparent;">
+            <div class="sib-text-form-block">
+              <p><br></p>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 8px 0;">
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row">
+                <label class="entry__label" style="font-weight:700; text-align:left; font-size:16px; font-style:italic; font-family:Helvetica, sans-serif; color:#FFF;" for="EMAIL" data-required="*">Inscris-toi pour recevoir chaque mois des recettes inédites, des réductions et du contenu gratuit à vie.</label>
+                <div class="entry__field">
+                  <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required style="background-color:transparent; color:#000;">
+                </div>
+              </div>
+              <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+              <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4;">Provide your email address to subscribe. For e.g abc@xyz.com</label>
+              </br>
+            Cherchez dans votre boîte mail ou vos spams !
+            </div>
+          </div>
+        </div>
+        <div style="padding: 8px 0;">
+          <div class="sib-form-block" style="text-align:left;">
+            <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:18px; text-align:left; font-weight:700; font-family:Futura, sans-serif; color:#FFFFFF; background-color:#000000; border-radius:20px; border-width:0px;" form="sib-form" type="submit">
+              <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+              </svg>
+              Obtenir
+            </button>
+          </div>
+        </div>
+
+        <input type="text" name="email_address_check" value="" class="input--hidden">
+        <input type="hidden" name="locale" value="en">
+      </form>
+    </div>
+  </div>
+</div>
+<!-- END - We recommend to place the above code where you want the form in your website html  -->
+
+<!-- START - We recommend to place the below code in footer or bottom of your website html  -->
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  window.LOCALE = 'en';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "❌ Vérification échouée";
+  window.REQUIRED_ERROR_MESSAGE = "⚠️ Champ requis ";
+  window.GENERIC_INVALID_MESSAGE = "❌ Vérification échouée";
+
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected',
+      selectedOption: '{quantity} selected',
+      selectedOptions: '{quantity} selected',
+    }
+  };
+
+  var AUTOHIDE = Boolean(0);
+</script>
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<!-- END - We recommend to place the above code in footer or bottom of your website html  -->
+<!-- End Brevo Form -->
+</section>
+
+<!-- Footer -->
+<footer class="bg-black border-t-2 border-white/20 py-16 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div>
+<div class="text-3xl md:text-4xl font-black mb-6 text-glow" style="font-family: 'Orbitron', sans-serif;">
+<span class="text-white">VARILEO®</span>
+<span class="text-2xl md:text-3xl ml-2 float-anim"></span>
+</div>
+<p class="text-base md:text-lg leading-relaxed text-gray-400">
+Transformez votre vie en 30 jours avec FORGE Membership. 180h gagnées, 1 iPhone économisé, résultats garantis ! 🚀
+</p>
+</div>
+<div>
+<h4 class="text-xl md:text-2xl font-black mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">Navigation</h4>
+<div class="space-y-3">
+<a href="#formations" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">🎓 Formations</a>
+<a href="#recettes" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">🍳 Recettes</a>
+<a href="#science" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">🔬 Science</a>
+<a href="#temoignages" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">⭐ Témoignages</a>
+<a href="#membership" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">👑 FORGE Membership</a>
+</div>
+</div>
+<div>
+<h4 class="text-xl md:text-2xl font-black mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">Ressources</h4>
+<div class="space-y-3">
+<a href="https://varileo-store.github.io/RECOMPENSE/" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">Récompense Immédiate</a>
+<a href="https://varileo-store.github.io/mentions.l-egales/" target="_blank" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+<a href="https://varileo-store.github.io/politique.de.confidentialite/"target="_blank" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+<a href="https://varileo-store.github.io/contact/" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">Contact</a>
+<a href="https://varileo-store.github.io/conditions.generales.de.vente/" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">CGV</a>
+<a href="https://varileo-store.github.io/centre.d-aide/" class="block text-base md:text-lg text-gray-400 hover:text-white transition-colors">Aide & Infos</a>
+</div>
+</div>
+<div>
+<h4 class="text-xl md:text-2xl font-black mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">Suivez-nous 📱</h4>
+<div class="flex gap-4">
+<a href="https://www.tiktok.com/@varileo?_r=1&_t=ZN-912CwkCdK22" target="_blank" class="w-14 h-14 bg-white/10 border border-white/30 hover:bg-white/20 rounded-full flex items-center justify-center transition-all backdrop-blur-md hover:scale-110">
+<i class="fab fa-tiktok text-2xl text-white"></i>
+</a>
+<a href="https://www.instagram.com/varileo_?igsh=cTRkbWo2dTU5dHU%3D&utm_source=qr" target="_blank" class="w-14 h-14 bg-white/10 border border-white/30 hover:bg-white/20 rounded-full flex items-center justify-center transition-all backdrop-blur-md hover:scale-110">
+<i class="fab fa-instagram text-2xl text-white"></i>
+</a>
+<a href="https://youtube.com/@varileoo?si=OQ01yVU_0rKyR0X3" target="_blank" class="w-14 h-14 bg-white/10 border border-white/30 hover:bg-white/20 rounded-full flex items-center justify-center transition-all backdrop-blur-md hover:scale-110">
+<i class="fab fa-youtube text-2xl text-white"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-white/20 pt-8 text-center">
+<p class="text-base md:text-lg font-bold text-gray-400">&copy; 2025 VARILEO. Tous droits réservés. Fait avec 💜 en France 🇫🇷</p>
+</div>
+</div>
+</footer>
+
+</script>
+<script>
+(function(){
+  // Ajuste cette valeur si tu veux plus ou moins d'espace au-dessus du champ
+  const TOP_MARGIN = 120; // px — baisse à 60 ou monte à 200 selon besoin
+
+  function scrollToEmailAndFocus() {
+    // cherche le champ e-mail Brevo (plusieurs sélecteurs pour garantir la détection)
+    const emailEl = document.querySelector('#EMAIL, input[name="EMAIL"], input[type="email"], input[id*="email" i], input[name*="email" i]');
+    if (!emailEl) return false;
+
+    // calcule la position pour que le champ soit TOP_MARGIN pixels sous le haut de la fenêtre
+    const rect = emailEl.getBoundingClientRect();
+    const top = Math.max(0, rect.top + window.pageYOffset - TOP_MARGIN);
+
+    window.scrollTo({ top, behavior: 'smooth' });
+
+    // focus après le scroll — délai court pour laisser la smooth-scrolling se lancer
+    setTimeout(() => {
+      try {
+        emailEl.focus({ preventScroll: true });
+        // si l'utilisateur a un mobile qui zoome, on s'assure qu'il voit le champ
+        if (typeof emailEl.select === 'function') emailEl.select();
+      } catch (e) {}
+    }, 450);
+
+    return true;
+  }
+
+  // Attache le handler aux boutons .secondary-btn (et aux mega-btn si besoin)
+  document.querySelectorAll('.secondary-btn, .mega-btn').forEach(button => {
+    button.addEventListener('click', function(e){
+      // empêche redirection onclick existante
+      e.preventDefault();
+      e.stopPropagation();
+
+      const ok = scrollToEmailAndFocus();
+      // si pas trouvé, descend vers #membership en backup
+      if (!ok) {
+        const membership = document.querySelector('#membership');
+        if (membership) membership.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, { passive: false });
+  });
+
+  // Aussi : si tu as des <a href="#something"> ou onclick inline qui forcent la nav,
+  // elles sont empêchées par e.preventDefault() ci-dessus (si elles ont class .secondary-btn).
+})();
+</script>
+</body>
+</html>
+<!-- === HEAD === -->
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+<style>
+  /* === Styles généraux du popup === */
+  body {
+    margin: 0;
+    font-family: 'Futura', 'Roboto', sans-serif;
+    background: #000;
+    color: #fff;
+  }
+
+  #brevo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-content {
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    position: relative;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .close-btn:hover {
+    opacity: 1;
+  }
+
+  label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: #ccc;
+    line-height: 1.4;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  input[type="email"]:focus {
+    border-color: #fff;
+  }
+
+  button[type="submit"] {
+    margin-top: 18px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+
+  .success, .error {
+    display: none;
+    margin-top: 12px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .success { color: #00ff88; }
+  .error { color: #ff4444; }
+</style>
+
+<!-- === BODY === -->
+<div id="brevo-modal">
+  <div class="modal-content">
+    <button class="close-btn" id="brevo-close" aria-label="Fermer">×</button>
+
+    <form id="sib-form" method="POST"
+      action="https://0a088623.sibforms.com/serve/MUIFAAN-ciOE6dKrMzXUWVxd1sUz23FM41ETpvbdxvKjSTZXReXZvQntLneM_sI_-hXbIOu7PzYkZz8sIr_O9pkWEdpMOGlU4xz1QbxOFNYM7KiwADsGoq7XxFlPBZ28MFz-RdHLpQGXKAnPAQtISRydZdSTbqPkSskUc446udY5FwCD-ott17fvWSYNtJqOeY4aCoj6kBSO4iSsMg=="
+      data-type="subscription">
+
+      <label for="EMAIL">
+        Reçois chaque mois des recettes inédites, des réductions et du contenu exclusif.<br><br>
+        <small style="color:#777;">(Zéro spam — juste du contenu utile.)</small>
+      </label>
+
+      <input type="email" id="EMAIL" name="EMAIL" placeholder="Ton adresse email" required>
+      <button type="submit">S’inscrire</button>
+
+      <p class="success" id="success-message">✅ Inscription réussie ! Vérifie ta boîte mail.</p>
+      <p class="error" id="error-message">⚠️ Erreur, essaie une autre adresse.</p>
+
+      <input type="hidden" name="locale" value="fr">
+    </form>
+  </div>
+</div>
+
+<!-- === Brevo Script === -->
+<script>
+  window.LOCALE = 'fr';
+  window.EMAIL_INVALID_MESSAGE = "❌ Adresse email invalide";
+  window.REQUIRED_ERROR_MESSAGE = "⚠️ Champ requis";
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+<!-- === Script popup + logique === -->
+<script>
+  (function () {
+    const modal = document.getElementById('brevo-modal');
+    const closeBtn = document.getElementById('brevo-close');
+    const form = document.getElementById('sib-form');
+    const successMsg = document.getElementById('success-message');
+    const errorMsg = document.getElementById('error-message');
+
+    // Affiche automatiquement la popup à l'arrivée
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+      }, 500); // délai de 0.5s pour fluidité
+    });
+
+    // Fermer la popup
+    function closeModal() {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Simulation d’envoi (Brevo traite le POST)
+    form.addEventListener('submit', () => {
+      successMsg.style.display = 'block';
+      errorMsg.style.display = 'none';
+      setTimeout(closeModal, 1200);
+    });
+  })();
+</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Agent - Assistant Varileo®</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-gradient: transparent;
+    }
+}
+        .demo-container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .demo-container h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .demo-container p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .demo-arrow {
+            font-size: 3rem;
+            animation: bounce 2s ease-in-out infinite;
+            color: var(--accent-color);
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 10px var(--accent-glow)); }
+            50% { filter: drop-shadow(0 0 20px var(--accent-glow)); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Widget de chat flottant */
+        #v-agent-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0, 255, 153, 0.4), 0 0 40px rgba(0, 255, 153, 0.2);
+            transition: var(--transition-smooth);
+            border: 2px solid var(--accent-color);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        #v-agent-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 6px 30px rgba(0, 255, 153, 0.6), 0 0 60px rgba(0, 255, 153, 0.3);
+        }
+
+        #v-agent-btn.hidden {
+            opacity: 0;
+            transform: scale(0);
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        #v-agent-window {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            width: 380px;
+            max-width: calc(100vw - 48px);
+            background: var(--surface-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            z-index: 9998;
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(0, 255, 153, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        #v-agent-window.hidden {
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            pointer-events: none;
+        }
+
+        .v-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 18px;
+            background: linear-gradient(135deg, rgba(0, 255, 153, 0.1), rgba(0, 204, 255, 0.05));
+            border-bottom: 1px solid var(--surface-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .v-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .v-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            z-index: 1;
+        }
+
+        .v-header-icon {
+            font-size: 24px;
+            animation: rotate-icon 4s linear infinite;
+        }
+
+        @keyframes rotate-icon {
+            0%, 90% { transform: rotate(0deg); }
+            95%, 100% { transform: rotate(360deg); }
+        }
+
+        .v-close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .v-close-btn:hover {
+            background: rgba(255, 100, 100, 0.3);
+            border-color: rgba(255, 100, 100, 0.5);
+            transform: rotate(90deg);
+        }
+
+        .v-body {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .v-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .v-body::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .v-body::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        .v-message {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+            animation: slide-in 0.4s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .v-message.bot {
+            border-left: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 255, 153, 0.1);
+        }
+
+        .v-message.user {
+            border-right: 3px solid #007bff;
+            text-align: right;
+            background: rgba(0, 123, 255, 0.15);
+        }
+
+        .v-questions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .v-questions button {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            border: 1px solid var(--surface-border);
+            border-radius: 10px;
+            padding: 10px 8px;
+            font-size: 13px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .v-questions button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, var(--accent-glow), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            border-radius: 50%;
+        }
+
+        .v-questions button:hover {
+            background: rgba(0, 255, 153, 0.15);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 153, 0.2);
+        }
+
+        .v-questions button:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        .v-questions button:active {
+            transform: translateY(0);
+        }
+
+        .v-footer {
+            text-align: center;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid var(--surface-border);
+        }
+
+        .v-contact {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .v-contact:hover {
+            color: #00ccff;
+            transform: scale(1.05);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            #v-agent-window {
+                width: calc(100vw - 32px);
+                right: 16px;
+                bottom: 90px;
+            }
+
+            #v-agent-btn {
+                right: 16px;
+                bottom: 16px;
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+
+            .v-questions {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-container h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Indicateur de typing */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenu de démonstration -->
+    <div class="demo-container">
+        <h1>V-AGENT</h1>
+        <p></p>
+        <div class="demo-arrow">↘</div>
+    </div>
+
+    <!-- Bouton flottant du widget -->
+    <div id="v-agent-btn" onclick="toggleChat()">
+        💬
+    </div>
+
+    <!-- Fenêtre du chat -->
+    <div id="v-agent-window" class="hidden">
+        <div class="v-header">
+            <div class="v-header-title">
+                <span class="v-header-icon">🤖</span>
+                <span>V-Agent</span>
+            </div>
+            <button class="v-close-btn" onclick="closeChat()">✕</button>
+        </div>
+
+        <div class="v-body" id="v-chat">
+            <div class="v-message bot">
+                Salut 👋 Je suis <strong>V-Agent</strong>, le chatbot Varileo®.<br><br>
+                Si tu rencontres un problème, je suis là pour t'aider.<br><br>
+                Choisis une question ci-dessous :
+            </div>
+        </div>
+
+        <div class="v-questions">
+            <button onclick="botReply('Mon espace FORGE Membership est déformé ou inaccessible')">
+                📖 Mon espace FORGE Membership
+            </button>
+            <button onclick="botReply('Y a-t-il un essai gratuit ?')">
+                🎁 Essai gratuit ?
+            </button>
+            <button onclick="botReply('Remboursement')">
+                🔁 Remboursement
+            </button>
+            <button onclick="botReply('Support')">
+                📩 Support
+            </button>
+            <button onclick="botReply('Quels modes de paiement sont acceptés ?')">
+                💳 Modes de paiement
+            </button>
+            <button onclick="botReply('Problème technique avec une recette ou une vidéo')">
+                ⚡ Problème technique
+            </button>
+        </div>
+
+        <div class="v-footer">
+            <a href="mailto:varileo@email.com?subject=Contact%20V-Agent&body=Bonjour%20!"
+               class="v-contact">
+                📨 Contacter un vrai agent
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Éléments DOM
+        const agentBtn = document.getElementById('v-agent-btn');
+        const agentWindow = document.getElementById('v-agent-window');
+
+        // Fonction pour ouvrir/fermer le chat
+        function toggleChat() {
+            if (agentWindow.classList.contains('hidden')) {
+                openChat();
+            } else {
+                closeChat();
+            }
+        }
+
+        // Fonction pour ouvrir le chat
+        function openChat() {
+            agentWindow.classList.remove('hidden');
+            agentBtn.classList.add('hidden');
+        }
+
+        // Fonction pour fermer le chat
+        function closeChat() {
+            agentWindow.classList.add('hidden');
+            agentBtn.classList.remove('hidden');
+        }
+
+        // Gestion des réponses du bot
+        function botReply(question) {
+            const chat = document.getElementById('v-chat');
+
+            // Ajouter le message de l'utilisateur
+            const userMsg = document.createElement('div');
+            userMsg.className = 'v-message user';
+            userMsg.textContent = question;
+            chat.appendChild(userMsg);
+
+            // Scroll vers le bas
+            chat.scrollTop = chat.scrollHeight;
+
+            // Afficher l'indicateur de typing
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'v-message bot typing-indicator';
+            typingDiv.innerHTML = '<span></span><span></span><span></span>';
+            chat.appendChild(typingDiv);
+            chat.scrollTop = chat.scrollHeight;
+
+            // Déterminer la réponse
+            let reply = '';
+
+            switch(question) {
+                case 'Mon espace FORGE Membership est déformé ou inaccessible':
+                    reply = '📧 Contactez-nous à <strong>varileo@email.com</strong>.<br><br>Indiquez votre email Gumroad et ajoutez une capture du problème.<br><br>✅ Un nouvel accès vous sera généré sous 1 à 3 jours.';
+                    break;
+                case 'Y a-t-il un essai gratuit ?':
+                    reply = '🎉 Oui ! L\'essai gratuit vous permet de découvrir sans engagement.<br><br>Annulez à tout moment, sans frais.';
+                    break;
+                case 'Remboursement':
+                    reply = '💰 Pour vous faire rembourser, envoyez un mail à <strong>varileo@email.com</strong>.<br><br>Précisez l\'adresse e-mail utilisée pour l\'abonnement.<br><br>⚡ Votre demande est prioritaire et traitée sous 1 à 3 jours.';
+                    break;
+                case 'Support':
+                    reply = '👋 Contactez-nous à <strong>varileo@email.com</strong> et notre équipe vous répondra rapidement avec plaisir !';
+                    break;
+                case 'Quels modes de paiement sont acceptés ?':
+                    reply = '💳 Nous acceptons :<br><br>• Cartes bancaires (Visa, Mastercard, etc.)<br>• PayPal<br><br>Pour une expérience fluide et sécurisée.';
+                    break;
+                case 'Problème technique avec une recette ou une vidéo':
+                    reply = '🔧 <strong>Solutions rapides :</strong><br><br>1️⃣ Assurez-vous d\'être bien connecté<br>2️⃣ Rechargez la page (F5 ou Ctrl+R)<br>3️⃣ Essayez depuis un autre navigateur<br><br>Si le problème persiste, envoyez-nous une capture d\'écran et on s\'en occupe vite ! 📸';
+                    break;
+                default:
+                    reply = '🤔 Je ne suis pas sûr de comprendre… Essaie une autre question ou contacte notre équipe !';
+            }
+
+            // Retirer l'indicateur de typing et afficher la réponse après un délai
+            setTimeout(() => {
+                typingDiv.remove();
+
+                const botResponse = document.createElement('div');
+                botResponse.className = 'v-message bot';
+                botResponse.innerHTML = reply;
+                chat.appendChild(botResponse);
+
+                // Scroll vers le bas
+                chat.scrollTop = chat.scrollHeight;
+            }, 800);
+        }
+
+        // Fermer le chat si on clique en dehors
+        document.addEventListener('click', function(event) {
+            const isClickInsideWindow = agentWindow.contains(event.target);
+            const isClickOnButton = agentBtn.contains(event.target);
+
+            if (!isClickInsideWindow && !isClickOnButton && !agentWindow.classList.contains('hidden')) {
+                closeChat();
+            }
+        });
+
+        // Support du mode sombre
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
+
+
+
 
